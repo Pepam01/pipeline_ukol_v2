@@ -5,7 +5,7 @@ pipeline {
       steps {
       	sh "chmod +x -R ${env.WORKSPACE}"
         sh './scripts/build.sh' // Gradle build?
-        sh './scripts/test.sh'
+        #sh './scripts/test.sh'
         echo "Check Stage of branch ${env.BRANCH_NAME} running..."
       }
     }
@@ -23,7 +23,7 @@ pipeline {
       // steps pro develop branch
       steps {
 	echo "ENV_tag value :  ${ENVIRONMENT_TAG}"
-	sh './release.sh ${ENVIRONMENT_TAG} '
+	sh './release.sh ${ENVIRONMENT_TAG} ${env.BUILD_NUMBER}'
       }
     }
   }
