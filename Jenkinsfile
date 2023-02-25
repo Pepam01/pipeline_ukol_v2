@@ -4,8 +4,8 @@ pipeline {
     stage('check') {
       steps {
       	sh "chmod +x -R ${env.WORKSPACE}"
-        sh './scripts/build.sh' // Gradle build?
-        #sh './scripts/test.sh'
+        sh './build.sh' // Gradle build?
+        //sh './scripts/test.sh'
         echo "Check Stage of branch ${env.BRANCH_NAME} running..."
       }
     }
