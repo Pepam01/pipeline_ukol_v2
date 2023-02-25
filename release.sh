@@ -9,6 +9,7 @@ docker tag pepam_image "pepam01/pipeline_ukol:$1"
 docker tag pepam_image "pepam01/pipeline_ukol:$2"
 docker rmi pepam_image:latest # odstraneni defaultniho tagu co se dava automaticky
 docker image push --all-tags pepam01/pipeline_ukol
+docker logout
 #./gradlew docker -Pargs="$1,$2"
 #./gradlew tasks
 #./gradlew dockerTagDockerHub -Pargs="$1,$2"

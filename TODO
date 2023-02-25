@@ -28,10 +28,13 @@ ty tagy budou dva, verze a label, musi se na dockerhub ukazat oba
 tag je vlastne stejne jako v kompu treba shortcut, ktery ukazuje na konkretni docker image. To znamena ze jeden docker image muze mit vic tagu.
 Jednotlive tagy ale stale budou ukazovat na ten samy docker image.
 
-workaround bude takovy ze zbuildim docker image(obejdu task z jenkins pomoci docker build prikazu), otaguju ho a pak pushnu docker image i s tagama na remote.
+workaround bude takovy ze zbuildim docker image(obejdu task z jenkins pomoci docker build prikazu), otaguju ho a pak pushnu docker image i s tagama na r
+emote.
 
 co udelame tedka, zkusime si ty prikazy oddelene, prvni docker build
 
+
+Uz jsem zacal testovat na Jenkins, problem vypada ze je s credentials
 
 
 
