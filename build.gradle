@@ -2,11 +2,35 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.8'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "com.palantir.docker" version "0.22.1"
+	id "com.palantir.docker-run" version "0.22.1"
 }
 
+
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+//version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+docker {
+	name "${project.name}:${project.version}"
+	files 'pipeline_ukol.jar'
+	//doLast {
+		if (project.hasProperty("args")){
+			println project.getProperty("args").split(',')[0]
+			println project.getProperty("args").split(',')[1]
+			println "pepam01/pipeline_ukol_"+project.getProperty("args").split(',')[0]+':'+project.getProperty("args").split(',')[1]
+			tag 'DockerHub', "pepam01/pipeline_ukol_"+project.getProperty("args").split(',')[0]+':'+project.getProperty("args").split(',')[1]
+			//println "argument was set" + project.getProperty("args").split(',')//+project.getProperty("args")
+		}
+}
+
+
+dockerRun {
+	name "${project.name}"
+	image "${project.name}:${project.version}"
+	ports '8082:8082'
+	clean true
+}
 
 repositories {
 	mavenCentral()
@@ -20,3 +44,5 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+ 

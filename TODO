@@ -1,0 +1,34 @@
+udelat novy spring boot http server ktery pujde gradle buildovat, zatim mi to nejde
+napojit na nej h2 db a vyzkouset zda odpovida na CRUD pozadavky jak ma
+dam tam tu pipelinu kterou mam k dispozici
+na pipelinu napisu build script tak jak to je v MPI (zbuildovani, delete docker img, tag docker img, push to remote)
+otestovat docker push lokalne (stejne jako v git slozce, lokalni verze docker img)
+zalozit amazon cloud ucet a tam zkusit pushnout docker img - (k zbuildovani docker img budu potrebovat plugin z MPI)
+
+jeste potrebujeme udelat handler hhtp requestu na serveru ,to si pujcim ze spring http examplu
+
+
+
+co dela MPI build job?
+docker rmi -f $(docker images -q '626404419872.dkr.ecr.eu-central-1.amazonaws.com/marketplace-integrator/orders-service' | uniq) || echo 'empty'
+
+clean build dockerBuildImage (tohle je pres ten plugin?)
+
+otagovani docker img
+
+
+Call 24.2.
+Prvni co udelat, git repo nove a poslat Petovi odkaz.
+udelat jedno repo na dockerhub
+potrebujeme vyresit tagovani image, to udelame pomoci docker tag prikazu v release.sh, neni uz potreba pouzivat Palantir plugin.
+Buildovani docker image taky vytahneme ven z build.gradle a udelame v release.sh pomoci docker build -t amazon_blabla_neco protoze tady na to 
+se pak pouziva konkretni plugin ktery timto chceme obejit
+ty tagy budou dva, verze a label, musi se na dockerhub ukazat oba
+
+tag je vlastne stejne jako v kompu treba shortcut, ktery ukazuje na konkretni docker image. To znamena ze jeden docker image muze mit vic tagu.
+Jednotlive tagy ale stale budou ukazovat na ten samy docker image.
+
+workaround bude takovy ze zbuildim docker image(obejdu task z jenkins pomoci docker build prikazu), otaguju ho a pak pushnu docker image i s tagama na remote.
+
+
+
