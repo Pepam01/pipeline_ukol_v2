@@ -18,8 +18,8 @@ otagovani docker img
 
 
 Call 24.2.
-Prvni co udelat, git repo nove a poslat Petovi odkaz.
-udelat jedno repo na dockerhub
+Prvni co udelat, git repo nove a poslat Petovi odkaz. //
+udelat jedno repo na dockerhub //
 potrebujeme vyresit tagovani image, to udelame pomoci docker tag prikazu v release.sh, neni uz potreba pouzivat Palantir plugin.
 Buildovani docker image taky vytahneme ven z build.gradle a udelame v release.sh pomoci docker build -t amazon_blabla_neco protoze tady na to 
 se pak pouziva konkretni plugin ktery timto chceme obejit
@@ -30,5 +30,53 @@ Jednotlive tagy ale stale budou ukazovat na ten samy docker image.
 
 workaround bude takovy ze zbuildim docker image(obejdu task z jenkins pomoci docker build prikazu), otaguju ho a pak pushnu docker image i s tagama na remote.
 
+co udelame tedka, zkusime si ty prikazy oddelene, prvni docker build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Odkazy
+https://www.reddit.com/r/docker/comments/2lqnct/how_to_return_just_the_image_id_from_docker_build/		pojmenovani docker image
 
 

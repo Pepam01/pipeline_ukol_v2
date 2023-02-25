@@ -23,6 +23,7 @@ pipeline {
       // steps pro develop branch
       steps {
 	echo "ENV_tag value :  ${ENVIRONMENT_TAG}"
+	sh './release.sh ${ENVIRONMENT_TAG} '
       }
     }
   }
