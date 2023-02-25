@@ -25,7 +25,7 @@ pipeline {
       steps {
 	echo "ENV_tag value :  ${ENVIRONMENT_TAG}"
 	sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-	sh './release.sh ${ENVIRONMENT_TAG} ${env.BUILD_NUMBER}'
+	sh "./release.sh ${ENVIRONMENT_TAG} ${env.BUILD_NUMBER}"
       }
     }
   }
